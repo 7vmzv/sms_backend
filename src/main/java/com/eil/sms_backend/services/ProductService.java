@@ -17,8 +17,8 @@ public class ProductService {
 
     public List<Product> getAllProducts() throws ItemsNotFoundException {
         List<Product> products = productRepository.findAll();
-        System.out.println(products);
-        if(products.size() == 0) throw new ItemsNotFoundException("Database is empty !");
+        // System.out.println(products);
+        if(products.size() == 0) throw new ItemsNotFoundException("No products in database!");
         return productRepository.findAll();
     }
 
