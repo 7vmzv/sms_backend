@@ -25,4 +25,8 @@ public class ProductService {
     public void addProduct(Product product) {
         productRepository.save(product);
     }
+
+    public Product getProduct(String qr_code) {
+        return productRepository.findProductByQrCode(qr_code);
+    }
 }
