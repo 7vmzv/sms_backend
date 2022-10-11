@@ -16,15 +16,15 @@ public class SmsBackendApplication {
 		SpringApplication.run(SmsBackendApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner start(ProductService productService) {
-		return (args -> {
-			for(int i = 0; i < 10; i++) {
-				productService.addProduct(
-						new Product(null, "code------"+i, "product " + i, Math.random() * 10, new Date())
-				);
-			}
-		});
-
-	}
+//	@Bean
+//	CommandLineRunner start(ProductService productService) {
+//		return (args -> {
+//			for(int i = 0; i < 10; i++) {
+//				productService.addProduct(
+//						new Product(null, "code------"+i, "product " + i, Math.random() * 10, new Date())
+//				);
+//			}
+//		});
+//
+//	}
 }
