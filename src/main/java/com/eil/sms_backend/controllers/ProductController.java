@@ -13,7 +13,7 @@ import javax.swing.text.html.parser.Entity;
 import java.util.List;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProductController {
     private final ProductService productService;
     @Autowired
@@ -30,7 +30,7 @@ public class ProductController {
     }
 
     @GetMapping("/products/qr/{qr_code}")
-    Product getProduct(@PathVariable String qr_code) {
+    ResponseEntity<Product> getProduct(@PathVariable String qr_code) {
         return productService.getProduct(qr_code);
     }
 }

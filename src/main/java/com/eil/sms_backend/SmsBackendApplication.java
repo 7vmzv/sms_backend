@@ -25,18 +25,18 @@ public class SmsBackendApplication {
 		return (args -> {
 			for(int i = 0; i < 10; i++) {
 				productService.addProduct(
-						new Product(null, "code------"+i, "product " + i, Math.random() * 10, new Date())
+						new Product(null, "prd"+i, "product " + i, Math.random() * 10, new Date())
 				);
 			}
-			StoreOrder storeOrder = new StoreOrder();
-			storeOrder.setOrderLines(new ArrayList<>());
-			OrderLine orderLine = new OrderLine(null, storeOrder, 12, productService.getProduct("code------1"));
-			OrderLine orderLine1 = new OrderLine(null, storeOrder, 3, productService.getProduct("code------2"));
+//			StoreOrder storeOrder = new StoreOrder();
+//			storeOrder.setOrderLines(new ArrayList<>());
+//			OrderLine orderLine = new OrderLine(null, storeOrder, 12, productService.getProduct("code------1"));
+//			OrderLine orderLine1 = new OrderLine(null, storeOrder, 3, productService.getProduct("code------2"));
 
-			storeOrder.getOrderLines().add(orderLine);
-			storeOrder.getOrderLines().add(orderLine1);
-
-			orderService.createOrder(storeOrder);
+//			storeOrder.getOrderLines().add(orderLine);
+//			storeOrder.getOrderLines().add(orderLine1);
+//
+//			orderService.createOrder(storeOrder);
 
 		});
 	}

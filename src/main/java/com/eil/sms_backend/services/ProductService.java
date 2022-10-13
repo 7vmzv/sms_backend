@@ -3,6 +3,8 @@ package com.eil.sms_backend.services;
 import com.eil.sms_backend.exceptions.ItemsNotFoundException;
 import com.eil.sms_backend.entities.Product;
 import com.eil.sms_backend.repositories.ProductRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +28,9 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    public Product getProduct(String qr_code) {
-        return productRepository.findProductByQrCode(qr_code);
+    public ResponseEntity<Product> getProduct(String qr_code) {
+        Product product = productRepository.findProductByQrCode(qr_code);
+        if(product==null) throw new ItemsNotFoundException(String.format("Item with qr %s not found",qr_code));
+        return ResponseEntity.status(HttpStatus.OK).body(product);
     }
 }
