@@ -15,16 +15,17 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Order {
+public class StoreOrder {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Temporal(TemporalType.DATE)
     private Date date;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderLine> products;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_id")
+    private List<OrderLine> orderLines;
 
 }

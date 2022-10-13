@@ -26,7 +26,7 @@ public class Facture {
 
     @OneToOne
     @JoinColumn(name = "order_id")
-    private Order order;
+    private StoreOrder storeOrder;
 
     private int total;
 }
